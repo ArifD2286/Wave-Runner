@@ -1,3 +1,49 @@
 [gd_scene format=3 uid="uid://4gyf8qemkfel"]
 
+[ext_resource type="Script" uid="uid://seqtgf1800ie" path="res://player.gd" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://mkmy4ly64i62" path="res://assets/arrow head.png" id="3_fc0e3"]
+[ext_resource type="Script" uid="uid://c8hnlnfk34thb" path="res://trail.gd" id="3_feb5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(732, 549.9999)
+
 [node name="Node2D" type="Node2D" unique_id=2034591133]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1452230354]
+offset_right = 2304.0
+offset_bottom = 648.0
+color = Color(0.5647059, 0.5647059, 0.5647059, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1739874786]
+offset_right = 2304.0
+offset_bottom = 29.0
+color = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=385647988]
+offset_top = 620.0
+offset_right = 2304.0
+offset_bottom = 649.0
+color = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1578341794]
+position = Vector2(0, 329)
+script = ExtResource("1_80nbo")
+
+[node name="Line2D" type="Line2D" parent="CharacterBody2D" unique_id=1571316021]
+position = Vector2(-56, 0)
+width = 6.0
+script = ExtResource("3_feb5d")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1379785085]
+offset = Vector2(288, 0)
+limit_top = 0
+limit_bottom = 648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2010795601]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1697222114]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("3_fc0e3")
