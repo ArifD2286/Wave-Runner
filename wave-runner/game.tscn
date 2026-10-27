@@ -1,37 +1,30 @@
 [gd_scene format=3 uid="uid://4gyf8qemkfel"]
 
 [ext_resource type="Script" uid="uid://seqtgf1800ie" path="res://player.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dtm8ruhupexmf" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://mkmy4ly64i62" path="res://assets/arrow head.png" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://c8hnlnfk34thb" path="res://trail.gd" id="3_feb5d"]
+[ext_resource type="FontFile" uid="uid://car0ocxpcxi3o" path="res://assets/Minecraft.ttf" id="5_7jktm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
-size = Vector2(732, 549.9999)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feb5d"]
+radius = 75.00012
+height = 209.99974
 
 [node name="Node2D" type="Node2D" unique_id=2034591133]
+script = ExtResource("1_fc0e3")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1452230354]
 offset_right = 2304.0
 offset_bottom = 648.0
 color = Color(0.5647059, 0.5647059, 0.5647059, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1739874786]
-offset_right = 2304.0
-offset_bottom = 29.0
-color = Color(0.08235294, 0.08235294, 0.08235294, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="." unique_id=385647988]
-offset_top = 620.0
-offset_right = 2304.0
-offset_bottom = 649.0
-color = Color(0.08235294, 0.08235294, 0.08235294, 1)
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1578341794]
 position = Vector2(0, 329)
 script = ExtResource("1_80nbo")
 
 [node name="Line2D" type="Line2D" parent="CharacterBody2D" unique_id=1571316021]
-position = Vector2(-56, 0)
 width = 6.0
+default_color = Color(0.95142287, 0.757711, 0.32305363, 1)
 script = ExtResource("3_feb5d")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1379785085]
@@ -40,10 +33,27 @@ limit_top = 0
 limit_bottom = 648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2010795601]
+position = Vector2(16, 0)
+rotation = -1.5708082
 scale = Vector2(0.2, 0.2)
-shape = SubResource("RectangleShape2D_80nbo")
+shape = SubResource("CapsuleShape2D_feb5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1697222114]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_fc0e3")
+offset = Vector2(20, 0)
+
+[node name="tail" type="Marker2D" parent="CharacterBody2D/Sprite2D" unique_id=1737304701]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=772752324]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1292818224]
+texture_filter = 1
+offset_left = 53.0
+offset_top = 317.0
+offset_right = 523.0
+offset_bottom = 341.0
+theme_override_fonts/font = ExtResource("5_7jktm")
+theme_override_font_sizes/font_size = 24
+text = "Press Space or Enter to start the game!"
