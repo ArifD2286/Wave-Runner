@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dtvxu04gy3ah0"]
+
+[ext_resource type="Script" uid="uid://drauv0dghas0t" path="res://obstacle.gd" id="1_sl1jc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eow3j"]
+size = Vector2(80, 750)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
+size = Vector2(80, 750)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vef74"]
+size = Vector2(80, 750)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hve3p"]
+size = Vector2(80, 750)
+
+[node name="Node2D" type="Node2D" unique_id=38477929]
+script = ExtResource("1_sl1jc")
+
+[node name="Top obstacle" type="StaticBody2D" parent="." unique_id=1664106664]
+
+[node name="Sprite2D" type="Sprite2D" parent="Top obstacle" unique_id=527264441]
+texture_filter = 1
+texture = SubResource("PlaceholderTexture2D_eow3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top obstacle" unique_id=1628867374]
+shape = SubResource("RectangleShape2D_j5wjh")
+
+[node name="Bottom obstacle" type="StaticBody2D" parent="." unique_id=1802311467]
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom obstacle" unique_id=788272234]
+texture = SubResource("PlaceholderTexture2D_vef74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom obstacle" unique_id=281834777]
+shape = SubResource("RectangleShape2D_hve3p")

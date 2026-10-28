@@ -7,7 +7,7 @@ extends Line2D
 
 
 func _ready() -> void:
-	# [top_leve] stops the trail from moving along with the player so the old points stay put
+	# [top_level] stops the trail from moving along with the player so the old points stay put
 	top_level = true
 	global_position = Vector2.ZERO
 

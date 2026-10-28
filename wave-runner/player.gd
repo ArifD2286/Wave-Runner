@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var game = get_parent()
 @onready var sprite: Node2D = $Sprite2D
 @onready var hitbox: Node2D = $CollisionShape2D
-@export var vertical_speed: float = 600.0
-@export var forward_speed: float = 400.0
+@export var vertical_speed: float = 450.0
+@export var forward_speed: float = 450.0
 var direction: int = 1
 
 

@@ -1,7 +1,7 @@
 extends Node2D
 
+# Notes/revision:
 # The [game_playing] var will be referred to by other scripts
-
 
 @onready var start_label: Label = $CanvasLayer/Label
 @onready var end_label: Label = $CanvasLayer/Label2
@@ -35,5 +35,5 @@ func end_game() -> void:
 	game_over = true
 	end_label.show()
 	# the line of code below is the delay, only after it finishes the player can restart.
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.5).timeout
 	restart = true
