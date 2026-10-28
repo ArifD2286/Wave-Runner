@@ -5,10 +5,20 @@ extends Node2D
 
 @onready var start_label: Label = $CanvasLayer/Label
 @onready var end_label: Label = $CanvasLayer/Label2
+@onready var player: CharacterBody2D = $CharacterBody2D
+@export var wall_scene: PackedScene
+@export var spacing: float = 500.0
+@export var spawn_dist: float = 1500.0
+@export var despawn_dist: float = 800.0
+@export var max_gap_shift: float = 200.0
+@export var min_gap_y: float = 160.0
+@export var max_gap_y: float = 488.0
+var next_spawn_x: float
+var last_gap_y: float = 324.0
+var walls: Array = []
 var game_playing: bool = false
 var restart: bool = false
 var game_over: bool = false
-
 
 
 func _ready() -> void:

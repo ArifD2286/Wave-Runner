@@ -13,6 +13,7 @@ height = 209.99974
 
 [node name="Node2D" type="Node2D" unique_id=2034591133]
 script = ExtResource("1_fc0e3")
+wall_scene = ExtResource("6_ryrav")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1452230354]
 offset_right = 2304.0
@@ -68,6 +69,3 @@ offset_bottom = 347.0
 theme_override_fonts/font = ExtResource("5_7jktm")
 theme_override_font_sizes/font_size = 20
 text = "Game over - press Space to restart."
-
-[node name="Node2D" parent="." unique_id=38477929 instance=ExtResource("6_ryrav")]
-position = Vector2(0, 324)
