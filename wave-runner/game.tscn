@@ -69,3 +69,23 @@ offset_bottom = 347.0
 theme_override_fonts/font = ExtResource("5_7jktm")
 theme_override_font_sizes/font_size = 20
 text = "Game over - press Space to restart."
+
+[node name="HighestScore" type="Label" parent="CanvasLayer" unique_id=1823220712]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 137.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("5_7jktm")
+theme_override_font_sizes/font_size = 20
+text = "High Score: 0"
+
+[node name="LiveScore" type="Label" parent="CanvasLayer" unique_id=2144993163]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 91.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("5_7jktm")
+theme_override_font_sizes/font_size = 20
+text = "Score: 0"

@@ -1,6 +1,7 @@
 extends Line2D
 
 
+
 @export var max_points: int = 60
 @onready var tail: Node2D = $"../Sprite2D/tail"
 @onready var game = get_parent().get_parent()

@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 	hitbox.rotation = velocity.angle()
 
 	move_and_slide()
-	
-	if global_position.y < 0 or global_position.y > get_viewport_rect().size.y:
+	# [get_slide_collision_count()] counts how many things the player had touched after [move_and_slide()]
+	if get_slide_collision_count() > 0:
+		game.end_game()
+	elif global_position.y < 0 or global_position.y > get_viewport_rect().size.y:
 		game.end_game()

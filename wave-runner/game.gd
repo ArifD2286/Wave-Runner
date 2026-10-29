@@ -3,6 +3,8 @@ extends Node2D
 # Notes/revision:
 # The [game_playing] var will be referred to by other scripts
 
+@onready var score_label: Label = $CanvasLayer/LiveScore
+@onready var hgih_score: Label = $CanvasLayer/HighestScore
 @onready var start_label: Label = $CanvasLayer/Label
 @onready var end_label: Label = $CanvasLayer/Label2
 @onready var player: CharacterBody2D = $CharacterBody2D
@@ -19,11 +21,14 @@ var wall_array: Array = []
 var game_playing: bool = false
 var restart: bool = false
 var game_over: bool = false
+var score: int = 0
+var next_score_x: float
 
 
 func _ready() -> void:
 	end_label.hide()
 	next_spawn_x = player.global_position.x + 800.0
+	next_score_x = next_spawn_x
 
 
 func _process(delta: float) -> void:
@@ -37,6 +42,11 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if player.global_position.x > next_score_x:
+		score += 1
+		score_label.text = "Score: " + str(score)
+		next_score_x += spacing
+		
 	while next_spawn_x < player.global_position.x + spawn_dist:
 		spawn_wall()
 	# [wall_array[0]] is the first item in array, start from [0] instead of [1]
@@ -45,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		var old_wall = wall_array.pop_front()
 		# [queue_free()] deletes the ndoe from the game
 		old_wall.queue_free()
+
 
 
 func start_game() -> void:
@@ -56,6 +67,9 @@ func end_game() -> void:
 	game_playing = false
 	game_over = true
 	end_label.show()
+	if score > Global.high_score:
+		Global.high_score = score
+		hgih_score.text = "Highest Score: " + str(Global.high_score)
 	# the line of code below is the delay, only after it finishes the player can restart.
 	await get_tree().create_timer(0.5).timeout
 	restart = true

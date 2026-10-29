@@ -1,7 +1,6 @@
 extends Node2D
 
 # Notes/revision:
-# 
 
 @export var gap_size: float = 250.0
 @export var wall_height: = 750.0
