@@ -5,10 +5,11 @@ extends CharacterBody2D
 
 @onready var game = get_parent()
 @onready var sprite: Node2D = $Sprite2D
-@onready var hitbox: Node2D = $CollisionShape2D
+@onready var hitbox: Node2D = $CollisionPolygon2D
 @export var vertical_speed: float = 450.0
 @export var forward_speed: float = 450.0
 var direction: int = 1
+
 
 
 func _physics_process(delta: float) -> void:
@@ -17,13 +18,10 @@ func _physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("ui_accept"):
 		direction = -direction
-
 	velocity.y = direction * vertical_speed
 	velocity.x = forward_speed
-
 	sprite.rotation = velocity.angle()
 	hitbox.rotation = velocity.angle()
-
 	move_and_slide()
 	# [get_slide_collision_count()] counts how many things the player had touched after [move_and_slide()]
 	if get_slide_collision_count() > 0:

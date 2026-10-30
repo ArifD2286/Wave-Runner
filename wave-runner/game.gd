@@ -8,6 +8,8 @@ extends Node2D
 @onready var start_label: Label = $CanvasLayer/Label
 @onready var end_label: Label = $CanvasLayer/Label2
 @onready var player: CharacterBody2D = $CharacterBody2D
+@onready var scoresfx: AudioStreamPlayer = $ScoreSFX
+@onready var game_oversfx: AudioStreamPlayer = $GameOverSFX
 @export var wall_scene: PackedScene
 @export var spacing: float = 500.0
 @export var spawn_dist: float = 1500.0
@@ -45,6 +47,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if player.global_position.x > next_score_x:
 		score += 1
+		scoresfx.play()
 		score_label.text = "Score: " + str(score)
 		next_score_x += spacing
 	while next_spawn_x < player.global_position.x + spawn_dist:
@@ -65,6 +68,7 @@ func start_game() -> void:
 func end_game() -> void:
 	game_playing = false
 	game_over = true
+	game_oversfx.play()
 	end_label.show()
 	if score > Global.high_score:
 		Global.high_score = score

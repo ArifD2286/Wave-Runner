@@ -3,17 +3,15 @@
 [ext_resource type="Script" uid="uid://seqtgf1800ie" path="res://player.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dtm8ruhupexmf" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://cr8hpvtddbbla" path="res://assets/Sky.png" id="3_eow3j"]
-[ext_resource type="Texture2D" uid="uid://mkmy4ly64i62" path="res://assets/arrow head.png" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://c8hnlnfk34thb" path="res://trail.gd" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://ch256cq2od476" path="res://assets/clouds.png" id="4_j5wjh"]
 [ext_resource type="FontFile" uid="uid://car0ocxpcxi3o" path="res://assets/Minecraft.ttf" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://dgbf6a0hi8chm" path="res://assets/city.png" id="5_hve3p"]
 [ext_resource type="Texture2D" uid="uid://6anf1ygax34j" path="res://assets/grass.png" id="6_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://dtvxu04gy3ah0" path="res://obstacle.tscn" id="6_ryrav"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feb5d"]
-radius = 75.00012
-height = 209.99974
+[ext_resource type="Texture2D" uid="uid://bojpajosklkax" path="res://assets/flappy arrow.png" id="9_hve3p"]
+[ext_resource type="AudioStream" uid="uid://dml3kfk43xn3o" path="res://assets/sfx_die.mp3" id="11_mfdv2"]
+[ext_resource type="AudioStream" uid="uid://t1ukdlxuohok" path="res://assets/sfx_point.mp3" id="13_215e1"]
 
 [node name="Node2D" type="Node2D" unique_id=2034591133]
 script = ExtResource("1_fc0e3")
@@ -65,17 +63,14 @@ offset = Vector2(288, 0)
 limit_top = 0
 limit_bottom = 648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2010795601]
-position = Vector2(16, 0)
-rotation = -1.5708082
-scale = Vector2(0.2, 0.2)
-shape = SubResource("CapsuleShape2D_feb5d")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D" unique_id=1812157246]
+polygon = PackedVector2Array(2, 0, -6, -10, 2, -16, 16, -11, 37, 0, 16, 11, 2, 16, -6, 10)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1697222114]
 texture_filter = 1
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_fc0e3")
-offset = Vector2(20, 0)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("9_hve3p")
+offset = Vector2(12.5, 0)
 
 [node name="tail" type="Marker2D" parent="CharacterBody2D/Sprite2D" unique_id=1737304701]
 
@@ -89,7 +84,8 @@ offset_right = 727.0
 offset_bottom = 348.0
 theme_override_fonts/font = ExtResource("5_7jktm")
 theme_override_font_sizes/font_size = 20
-text = "Press Space to start the game!"
+text = "Press Space to start the game!
+Its night tho so you should sleep."
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=1779393544]
 texture_filter = 1
@@ -120,3 +116,11 @@ offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("5_7jktm")
 theme_override_font_sizes/font_size = 20
 text = "Score: 0"
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="." unique_id=542087725]
+stream = ExtResource("11_mfdv2")
+volume_db = -10.0
+
+[node name="ScoreSFX" type="AudioStreamPlayer" parent="." unique_id=1115907844]
+stream = ExtResource("13_215e1")
+volume_db = -15.0
