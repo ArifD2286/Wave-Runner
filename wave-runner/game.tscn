@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://seqtgf1800ie" path="res://player.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://dtm8ruhupexmf" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://cr8hpvtddbbla" path="res://assets/Sky.png" id="3_eow3j"]
 [ext_resource type="Texture2D" uid="uid://mkmy4ly64i62" path="res://assets/arrow head.png" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://c8hnlnfk34thb" path="res://trail.gd" id="3_feb5d"]
+[ext_resource type="Texture2D" uid="uid://ch256cq2od476" path="res://assets/clouds.png" id="4_j5wjh"]
 [ext_resource type="FontFile" uid="uid://car0ocxpcxi3o" path="res://assets/Minecraft.ttf" id="5_7jktm"]
+[ext_resource type="Texture2D" uid="uid://dgbf6a0hi8chm" path="res://assets/city.png" id="5_hve3p"]
+[ext_resource type="Texture2D" uid="uid://6anf1ygax34j" path="res://assets/grass.png" id="6_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://dtvxu04gy3ah0" path="res://obstacle.tscn" id="6_ryrav"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feb5d"]
@@ -15,10 +19,37 @@ height = 209.99974
 script = ExtResource("1_fc0e3")
 wall_scene = ExtResource("6_ryrav")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1452230354]
-offset_right = 2304.0
-offset_bottom = 648.0
-color = Color(0.5647059, 0.5647059, 0.5647059, 1)
+[node name="Sky" type="Parallax2D" parent="." unique_id=364284655]
+scroll_scale = Vector2(0.01, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky" unique_id=1923231365]
+texture = ExtResource("3_eow3j")
+offset = Vector2(576, 324)
+
+[node name="Cloud" type="Parallax2D" parent="." unique_id=788516552]
+scroll_scale = Vector2(0.02, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Cloud" unique_id=780097126]
+texture = ExtResource("4_j5wjh")
+offset = Vector2(576, 324)
+
+[node name="City" type="Parallax2D" parent="." unique_id=1383172397]
+scroll_scale = Vector2(0.08, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="City" unique_id=1846205033]
+texture = ExtResource("5_hve3p")
+offset = Vector2(576, 599)
+
+[node name="Grass" type="Parallax2D" parent="." unique_id=420295291]
+scroll_scale = Vector2(0.08, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grass" unique_id=1528604697]
+texture = ExtResource("6_mfdv2")
+offset = Vector2(576, 632)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1578341794]
 position = Vector2(0, 324)

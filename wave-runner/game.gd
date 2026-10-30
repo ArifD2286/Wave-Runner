@@ -4,7 +4,7 @@ extends Node2D
 # The [game_playing] var will be referred to by other scripts
 
 @onready var score_label: Label = $CanvasLayer/LiveScore
-@onready var hgih_score: Label = $CanvasLayer/HighestScore
+@onready var high_score: Label = $CanvasLayer/HighestScore
 @onready var start_label: Label = $CanvasLayer/Label
 @onready var end_label: Label = $CanvasLayer/Label2
 @onready var player: CharacterBody2D = $CharacterBody2D
@@ -29,6 +29,7 @@ func _ready() -> void:
 	end_label.hide()
 	next_spawn_x = player.global_position.x + 800.0
 	next_score_x = next_spawn_x
+	high_score.text = "Highest Score: " + str(Global.high_score)
 
 
 func _process(delta: float) -> void:
@@ -46,16 +47,14 @@ func _physics_process(delta: float) -> void:
 		score += 1
 		score_label.text = "Score: " + str(score)
 		next_score_x += spacing
-		
 	while next_spawn_x < player.global_position.x + spawn_dist:
 		spawn_wall()
 	# [wall_array[0]] is the first item in array, start from [0] instead of [1]
-	while wall_array.size() > 0 and wall_array[0].position.x < global_position.x - despawn_dist:
+	while wall_array.size() > 0 and wall_array[0].position.x < player.global_position.x - despawn_dist:
 		# [pop_front()] removes the first item from the array and hands it back.
 		var old_wall = wall_array.pop_front()
-		# [queue_free()] deletes the ndoe from the game
+		# [queue_free()] deletes the node from the game
 		old_wall.queue_free()
-
 
 
 func start_game() -> void:
@@ -69,14 +68,14 @@ func end_game() -> void:
 	end_label.show()
 	if score > Global.high_score:
 		Global.high_score = score
-		hgih_score.text = "Highest Score: " + str(Global.high_score)
+		high_score.text = "Highest Score: " + str(Global.high_score)
 	# the line of code below is the delay, only after it finishes the player can restart.
 	await get_tree().create_timer(0.5).timeout
 	restart = true
 
 
 func spawn_wall() -> void:
-	# [instantiate()] makes a new copy from the original node
+	# [instantiate()] makes a new copy from the original scene
 	var wall = wall_scene.instantiate()
 	# [randf_range(a, b)] makes a random number between the range a and b.
 	last_gap_y += randf_range(-max_gap_shift, max_gap_shift)
@@ -89,4 +88,3 @@ func spawn_wall() -> void:
 	# [append()] adds  a single value at the back of an array
 	wall_array.append(wall)
 	next_spawn_x += spacing
-	
