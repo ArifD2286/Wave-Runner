@@ -36,3 +36,16 @@ A game where Flappy Bird stole a mechanic from Geometry Dash! Travel through the
 
 ---
 ## Made for 3AM by HackClub
+
+### Note for reviewer (hackclub only):
+Here are the links for lapses:
+- Background:
+  - https://lapse.hackclub.com/timelapse/uk553PlxiE1d
+  - https://lapse.hackclub.com/timelapse/7UfgXeHx2ONf
+  - https://lapse.hackclub.com/timelapse/vCMaPXzfU9Yz
+- Player texture:
+  - https://lapse.hackclub.com/timelapse/J8r2h5MLHVzj (1st design)
+  - https://lapse.hackclub.com/timelapse/xvyFxfxpd0sM (final design)
+- Obstacle:
+  - https://lapse.hackclub.com/timelapse/fZLMZ9oDYFz3
+
