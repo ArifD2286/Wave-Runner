@@ -1,12 +1,13 @@
 # Wave Runner
 
 
-(screenshot)
+![Alt Text](https://github.com/ArifD2286/Wave-Runner/blob/main/Screenshot.png)
+![Alt Text](https://github.com/ArifD2286/Wave-Runner/blob/main/Screenshot2.png)
 
 
 A game where Flappy Bird stole a mechanic from Geometry Dash! Travel through the regular Flappy Bird world but as the Geometry Dash Wave, don't crash into upcoming obstacles and get the best score possible by surviving longer.
 
-
+---
 ### How to play:
 - Get the best score possible by surviving longer. Crashing into obstacles, the ceiling or the ground would mean game over.
 
@@ -24,12 +25,14 @@ A game where Flappy Bird stole a mechanic from Geometry Dash! Travel through the
 ### Demo:
 (link will be added in the future)
 
-
+---
 ### Update Logs:
 
 - Update 1.1 - 1.3: Player mechanics
-- Update 2.1 - 2.x: Start, endgame, and restart mechanics
-- Update 3.1 - 3.x: Obstacle spawning mechanics
+- Update 2.1 - 2.2: Start, endgame, and restart mechanics
+- Update 3.1 - 3.4: Obstacle spawning mechanics
+- Update 4.1 - 4.3: Polishing game, adding textures, sound effects, and cleaning up
+- Update 5.1: Uploaded screenshots for readme
 
-
-### Made for 3AM by HackClub
+---
+## Made for 3AM by HackClub
