@@ -23,7 +23,7 @@ A game where Flappy Bird stole a mechanic from Geometry Dash! Travel through the
 
 
 ### Demo:
-(link will be added in the future)
+https://arifd2010.itch.io/wave-runner
 
 ---
 ### Update Logs:
